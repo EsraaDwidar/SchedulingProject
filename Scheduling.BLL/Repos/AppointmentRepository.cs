@@ -24,7 +24,7 @@ namespace Scheduling.BLL.Repos
 
         public void Delete(int id)
         {
-            var appointments = _dbContext.Appointments.SingleOrDefault(x => x.Id == id);
+            var appointments = _dbContext.Appointments.FirstOrDefault(x => x.Id == id);
             _dbContext.Appointments.Remove(appointments);
             _dbContext.SaveChanges();
         }

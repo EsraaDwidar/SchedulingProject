@@ -14,11 +14,14 @@ namespace scheduling.PL
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+            builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            
             builder.Services.AddDbContext<SchedulingDbContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
             });
             
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
