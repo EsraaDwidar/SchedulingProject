@@ -11,7 +11,7 @@ namespace Scheduling.BLL.Repos
 {
     internal class AppointmentRepository : IAppointmentRepository
     {
-        private SchedulingDbContext _dbContext;
+        private readonly SchedulingDbContext _dbContext;
         public AppointmentRepository(SchedulingDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -37,6 +37,12 @@ namespace Scheduling.BLL.Repos
         public Appointment GetById(int id)
         {
             return _dbContext.Appointments.FirstOrDefault(x => x.Id == id);
+        }
+
+        public IEnumerable<Appointment> GetReminder(DateTime dateTime)
+        {
+            var reminder = _dbContext.Appointments.Where(u => u.ReminderDate.HasValue).ToList();
+            return reminder;
         }
 
         public void Update(Appointment appointment)

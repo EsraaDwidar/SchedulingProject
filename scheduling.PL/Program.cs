@@ -1,3 +1,6 @@
+using Scheduling.DAL.Data;
+using Scheduling.DAL.Models;
+
 namespace scheduling.PL
 {
     public class Program
@@ -8,7 +11,8 @@ namespace scheduling.PL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddDbContext<SchedulingDbContext>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

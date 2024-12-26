@@ -14,5 +14,6 @@ namespace Scheduling.BLL.Interfaces
         void Add(Appointment appointment);
         void Update(Appointment appointment);
         void Delete(int id);
+        IEnumerable<Appointment> GetReminder(DateTime dateTime);
     }
 }
