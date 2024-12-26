@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Scheduling.DAL.Models;
 
@@ -11,9 +6,8 @@ namespace Scheduling.DAL.Data
 {
     public class SchedulingDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public SchedulingDbContext(DbContextOptions<SchedulingDbContext> options):base(options)
         {
-            optionsBuilder.UseSqlServer("Server = .; Database = SchedulingMVCProject; Trusted_Connection = True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

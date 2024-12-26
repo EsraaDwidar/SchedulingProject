@@ -9,7 +9,7 @@ using Scheduling.DAL.Data;
 
 namespace Scheduling.BLL.Repos
 {
-    internal class AppointmentRepository : IAppointmentRepository
+    public class AppointmentRepository : IAppointmentRepository
     {
         private readonly SchedulingDbContext _dbContext;
         public AppointmentRepository(SchedulingDbContext dbContext)

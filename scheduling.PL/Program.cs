@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Scheduling.BLL.Interfaces;
+using Scheduling.BLL.Repos;
 using Scheduling.DAL.Data;
-using Scheduling.DAL.Models;
 
 namespace scheduling.PL
 {
@@ -11,7 +13,11 @@ namespace scheduling.PL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<SchedulingDbContext>();
+            builder.Services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+            builder.Services.AddDbContext<SchedulingDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+            });
             
             var app = builder.Build();
 

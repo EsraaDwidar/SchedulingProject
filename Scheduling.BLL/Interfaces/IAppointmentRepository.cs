@@ -7,7 +7,7 @@ using Scheduling.DAL.Models;
 
 namespace Scheduling.BLL.Interfaces
 {
-    internal interface IAppointmentRepository
+    public interface IAppointmentRepository
     {
         IEnumerable<Appointment> GetAll();
         Appointment GetById(int id);
