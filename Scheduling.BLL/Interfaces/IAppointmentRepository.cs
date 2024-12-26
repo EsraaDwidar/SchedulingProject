@@ -13,6 +13,6 @@ namespace Scheduling.BLL.Interfaces
         Appointment GetById(int id);
         void Add(Appointment appointment);
         void Update(Appointment appointment);
-        void Delete(Appointment appointment);
+        void Delete(int id);
     }
 }

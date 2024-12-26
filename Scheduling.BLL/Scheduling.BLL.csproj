@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Scheduling.DAL\Scheduling.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repos\" />
-  </ItemGroup>
-
 </Project>

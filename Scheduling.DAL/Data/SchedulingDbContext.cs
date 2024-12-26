@@ -9,7 +9,7 @@ using Scheduling.DAL.Models;
 
 namespace Scheduling.DAL.Data
 {
-    internal class SchedulingDbContext : DbContext
+    public class SchedulingDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
