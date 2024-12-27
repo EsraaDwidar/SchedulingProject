@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -82,6 +83,22 @@ namespace scheduling.PL.Controllers
             return View(appointment);
         }
 
+        // GET: demo/Edit/5
+        public IActionResult Edit(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var appointment = _repo.GetById(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+            return View(appointment);
+        }
+
         // POST: Appointment/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -93,6 +110,23 @@ namespace scheduling.PL.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        // GET: demo/Delete/5
+        public IActionResult Delete(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var appointment = _repo.GetById(id);
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            return View(appointment);
         }
 
         private bool AppointmentExists(DateTime date)
